@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body {
@@ -15,19 +22,6 @@ body {
     justify-content: center;
     grid-template-columns: repeat(4, 6rem);
     grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
-}
-
-.calculator-grid>button {
-    cursor: pointer;
-    font-size: 2rem;
-    border: 1px solid white;
-    outline: none;
-    background-color: rgba(255, 255, 255, .75);
-}
-
-.calculator-grid>button:hover,
-.calculator-grid>button:focus {
-    background-color: rgba(255, 255, 255, .9);
 }
 
 .span-two {

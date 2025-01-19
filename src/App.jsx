@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import React from "react";
 import DigitButton from "./DigitButton";
 import "./style.css"
 import OperationButton from "./OperationButton";
@@ -122,15 +123,17 @@ function formatOperand(operand) {
 
 
 function App() {
-  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(reducer, {})
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(reducer, {});
+
   return (
     <div className="calculator-grid">
       <div className="output">
         <div className="previous-operand">{formatOperand(previousOperand)} {operation}</div>
         <div className="current-operand">{formatOperand(currentOperand)}</div>
       </div>
-      <button className="span-two" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>AC</button>
-      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>DEL</button>
+      <button className="span-two rounded-lg bg-gradient-to-b from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600 transition duration-200 font-bold text-2xl shadow-lg" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>AC</button>
+      <button
+        className="rounded-lg bg-gradient-to-b from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600 transition duration-200 font-bold text-2xl shadow-lg" onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>DEL</button>
       <OperationButton operation="%" dispatch={dispatch} />
       <DigitButton digit="1" dispatch={dispatch} />
       <DigitButton digit="2" dispatch={dispatch} />
@@ -146,9 +149,10 @@ function App() {
       <OperationButton operation="-" dispatch={dispatch} />
       <DigitButton digit="." dispatch={dispatch} />
       <DigitButton digit="0" dispatch={dispatch} />
-      <button className="span-two" onClick={() => dispatch({ type: ACTIONS.EVALUATE })}>=</button>
+      <button className="span-two rounded-lg bg-gradient-to-b from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600 transition duration-200 font-bold text-2xl shadow-lg" onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
+      >=</button>
     </div>
-  )
+  );
 }
 
 export default App;
